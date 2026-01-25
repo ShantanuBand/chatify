@@ -9,7 +9,7 @@ import { connectDB } from "./lib/db.js";
 import { ENV } from "./lib/env.js";
 import { app, server } from "./lib/socket.js";
 
-app.set("trust proxy", 1); // 🔥 REQUIRED ON RENDER (VERY IMPORTANT)
+app.set("trust proxy", 1); // 🔥 REQUIRED FOR RENDER COOKIES
 
 const PORT = ENV.PORT || 3000;
 
