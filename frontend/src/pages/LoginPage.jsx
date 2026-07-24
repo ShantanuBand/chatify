@@ -15,17 +15,29 @@ function LoginPage() {
 
   return (
     <div className="w-full flex items-center justify-center p-4 bg-slate-900">
-      <div className="relative w-full max-w-6xl md:h-[800px] h-[650px]">
+      <div className="relative w-full max-w-6xl min-h-[650px] md:h-[800px]">
         <BorderAnimatedContainer>
-          <div className="w-full flex flex-col md:flex-row">
-            {/* FORM CLOUMN - LEFT SIDE */}
-            <div className="md:w-1/2 p-8 flex items-center justify-center md:border-r border-slate-600/30">
+          <div className="w-full flex flex-col md:flex-row relative min-h-[650px] md:min-h-0">
+            {/* MOBILE BACKGROUND IMAGE LAYER (visible only on < md screens) */}
+            <div className="absolute inset-0 md:hidden z-0 overflow-hidden pointer-events-none">
+              <img
+                src="/login.png"
+                alt="Background illustration"
+                className="w-full h-full object-cover opacity-30 scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-900/60 to-slate-950/90" />
+            </div>
+
+            {/* FORM COLUMN - LEFT SIDE */}
+            <div className="relative z-10 w-full md:w-1/2 p-6 sm:p-8 flex items-center justify-center md:border-r border-slate-600/30">
               <div className="w-full max-w-md">
                 {/* HEADING TEXT */}
                 <div className="text-center mb-8">
-                  <MessageCircleIcon className="w-12 h-12 mx-auto text-slate-400 mb-4" />
-                  <h2 className="text-2xl font-bold text-slate-200 mb-2">Welcome Back</h2>
-                  <p className="text-slate-400">Login to access to your account</p>
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 backdrop-blur-md mb-4 shadow-lg shadow-cyan-500/5">
+                    <MessageCircleIcon className="w-8 h-8 text-cyan-400" />
+                  </div>
+                  <h2 className="text-2xl font-bold text-slate-100 mb-2">Welcome Back</h2>
+                  <p className="text-slate-300/80 text-sm">Login to access your account</p>
                 </div>
 
                 {/* FORM */}

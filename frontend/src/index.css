@@ -9,11 +9,11 @@
 }
 
 .input {
-  @apply w-full bg-slate-800/50 border border-slate-700 rounded-lg py-2 pl-10 pr-4 text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent;
+  @apply w-full bg-slate-800/60 backdrop-blur-md border border-slate-700/80 rounded-xl py-2.5 pl-10 pr-4 text-slate-200 placeholder-slate-400/80 focus:outline-none focus:ring-2 focus:ring-cyan-500/80 focus:border-cyan-400/50 transition-all duration-200 shadow-inner;
 }
 
 .auth-input-icon {
-  @apply absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 size-5;
+  @apply absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 size-5 pointer-events-none;
 }
 
 .auth-input-label {
@@ -21,15 +21,13 @@
 }
 
 .auth-badge {
-  @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-cyan-500/20 text-cyan-300;
+  @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 backdrop-blur-sm;
 }
 
 .auth-btn {
-  @apply w-full bg-cyan-500 text-white rounded-lg py-2.5 font-medium
-  hover:bg-cyan-600 focus:ring-2 focus:ring-cyan-500;
+  @apply w-full bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-white rounded-xl py-3 font-medium shadow-lg shadow-cyan-500/20 active:scale-[0.99] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
 .auth-link {
-  @apply px-4 py-2 inline-block bg-cyan-500/10 rounded-lg text-cyan-400
-  hover:text-cyan-500 text-sm transition-colors;
+  @apply px-4 py-2 inline-block bg-slate-800/40 hover:bg-slate-800/70 border border-slate-700/50 rounded-xl text-cyan-400 hover:text-cyan-300 text-sm transition-all backdrop-blur-sm shadow-sm;
 }
