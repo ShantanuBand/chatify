@@ -29,7 +29,7 @@ function LoginPage() {
                 </div>
 
                 {/* FORM */}
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" autoComplete="off">
                   {/* EMAIL INPUT */}
                   <div>
                     <label className="auth-input-label">Email</label>
@@ -42,6 +42,7 @@ function LoginPage() {
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="input"
                         placeholder="johndoe@gmail.com"
+                        autoComplete="off"
                       />
                     </div>
                   </div>
@@ -58,6 +59,7 @@ function LoginPage() {
                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                         className="input"
                         placeholder="Enter your password"
+                        autoComplete="new-password"
                       />
                     </div>
                   </div>

@@ -18,7 +18,8 @@ app.use(
     origin: [
       "https://chatify-moza05s2d-shantanubands-projects.vercel.app",
       "https://chatify-rose-five.vercel.app",
-    ],
+      process.env.CLIENT_URL,
+    ].filter(Boolean),
     credentials: true,
   })
 );

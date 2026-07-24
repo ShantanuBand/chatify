@@ -1,4 +1,4 @@
-import { XIcon } from "lucide-react";
+import { XIcon, ArrowLeft } from "lucide-react";
 import { useChatStore } from "../store/useChatStore";
 import { useEffect } from "react";
 import { useAuthStore } from "../store/useAuthStore";
@@ -25,6 +25,15 @@ function ChatHeader() {
    border-slate-700/50 max-h-[84px] px-6 flex-1"
     >
       <div className="flex items-center space-x-3">
+        {/* Back button visible only on mobile/tablet */}
+        <button
+          onClick={() => setSelectedUser(null)}
+          className="md:hidden p-1 hover:bg-slate-700/50 rounded-full transition-colors -ml-2"
+          aria-label="Back to contacts"
+        >
+          <ArrowLeft className="w-6 h-6 text-slate-300 hover:text-white" />
+        </button>
+
         <div className={`avatar ${isOnline ? "online" : "offline"}`}>
           <div className="w-12 rounded-full">
             <img src={selectedUser.profilePic || "/avatar.png"} alt={selectedUser.fullName} />

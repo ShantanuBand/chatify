@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { useChatStore } from "../store/useChatStore";
 import ChatHeader from "./ChatHeader";
@@ -7,6 +7,7 @@ import MessageInput from "./MessageInput";
 import MessagesLoadingSkeleton from "./MessagesLoadingSkeleton";
 
 function ChatContainer() {
+  const [inputText, setInputText] = useState("");
   const {
     selectedUser,
     getMessagesByUserId,
@@ -31,6 +32,11 @@ function ChatContainer() {
       messageEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages]);
+
+  // Reset input text when selected user changes
+  useEffect(() => {
+    setInputText("");
+  }, [selectedUser]);
 
   return (
     <>
@@ -69,11 +75,11 @@ function ChatContainer() {
         ) : isMessagesLoading ? (
           <MessagesLoadingSkeleton />
         ) : (
-          <NoChatHistoryPlaceholder name={selectedUser.fullName} />
+          <NoChatHistoryPlaceholder name={selectedUser.fullName} setInputText={setInputText} />
         )}
       </div>
 
-      <MessageInput />
+      <MessageInput text={inputText} setText={setInputText} />
     </>
   );
 }
